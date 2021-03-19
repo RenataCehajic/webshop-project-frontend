@@ -10,7 +10,7 @@ export default function ProductList() {
   const products = useSelector(selectProducts);
   const loading = useSelector(selectProductLoading);
 
-  console.log("Products:", products);
+  console.log("Products:", products.data);
 
   const dispatch = useDispatch();
 
@@ -28,8 +28,8 @@ export default function ProductList() {
           {products.map((product, id) => (
             <li key={id}>
               <strong>{product.name}</strong>({product.description}) <br />
-              <em>Price {product.price}</em>
-              <em>Image {product.imageUrl}</em>
+              <p>Price {product.price}</p>
+              <img src={product.imageUrl} alt="" />
             </li>
           ))}
         </ul>
