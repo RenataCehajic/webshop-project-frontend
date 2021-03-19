@@ -1,0 +1,28 @@
+const initialState = {
+  token: null,
+  loading: false,
+  profile: null,
+};
+
+export default function userReducer(state = initialState, action) {
+  console.log("Hello");
+  switch (action.type) {
+    case "user/loading": {
+      return { ...state, loading: true };
+    }
+    case "user/setToken": {
+      const jwt = action.payload;
+      return { ...state, token: jwt, loading: false };
+    }
+    case "user/loginSuccess": {
+      const { profile, token } = action.payload;
+      return { ...state, profile: profile, token: token, loading: false };
+    }
+    case "user/logout": {
+      return { ...initialState };
+    }
+    default: {
+      return state;
+    }
+  }
+}
