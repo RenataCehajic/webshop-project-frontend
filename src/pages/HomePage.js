@@ -1,6 +1,11 @@
 // src/pages/HomePage.js
 import React from "react";
+import ProductList from "../components/ProductList";
 
 export default function HomePage() {
-  return <h1>Hello!</h1>;
+  return (
+    <div>
+      <ProductList />
+    </div>
+  );
 }
